@@ -1,18 +1,18 @@
 <?php
 // include database connection file
-include_once("config.php");
+include_once("../config.php");
 
 // Check if form is submitted for user update, then redirect to homepage after update
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
 
     $name = $_POST['name'];
-    $jenis = $_POST['jenis'];
-    $harga = $_POST['harga'];
-    $penjual = $_POST['penjual'];
+    $alamat = $_POST['alamat'];
+    $telepon = $_POST['telepon'];
+
 
     // update user data
-    $result = mysqli_query($mysqli, "UPDATE users SET name='$name',jenis='$Jenis',harga='$harga',penjual='$penjual' WHERE id=$id");
+    $result = mysqli_query($mysqli, "UPDATE users SET name='$name',alamat='$alamat',telepon='$telepon' WHERE id=$id");
 
     // Redirect to homepage to display updated user in list
     header("Location: index.php");
@@ -27,10 +27,10 @@ $id = $_GET['id'];
 $result = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
 
 while ($user_data = mysqli_fetch_array($result)) {
-    $name = $_POST['name'];
-    $alamat = $_POST['alamat'];
-    $telepon = $_POST['telepon'];
-    $id = $_POST['id'];
+    $name = $user_data['name'];
+    $alamat = $user_data['alamat'];
+    $telepon = $user_data['telepon'];
+    $id = $user_data['id'];
 }
 ?>
 <html>

@@ -13,7 +13,9 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 </head>
 
 <body>
-    <a href="add.php">Add New penjual</a><br /><br />
+    <a href="add.php">Add New penjual</a><br />
+    <a href="../index.php">kembali ke halaman utama</a>
+    <br /><br />
 
     <table width='80%' border=1>
 
@@ -21,7 +23,6 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
             <th>Nama</th>
             <th>alamat</th>
             <th>telepon</th>
-            <th>Update</th>
             <th>id</th>
         </tr>
         <?php
