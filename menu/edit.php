@@ -1,7 +1,7 @@
 <?php
 // include database connection file
 include_once("../config.php");
-
+$users = mysqli_query($mysqli, "select name, id from users");
 // Check if form is submitted for user update, then redirect to homepage after update
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
@@ -60,6 +60,7 @@ while ($user_data = mysqli_fetch_array($result)) {
                         <option value="minuman">minuman</option>
                     </select>
 
+
                 </td>
             </tr>
             <tr>
@@ -71,8 +72,22 @@ while ($user_data = mysqli_fetch_array($result)) {
                 <td><input type="text" name="stok" value=<?php echo $stok; ?>></td>
             </tr>
             <tr>
-                <td>penjual</td>
-                <td><input type="text" name="penjual" value=<?php echo $penjual; ?>></td>
+                <td>penjual</td>+
+                <td>
+                    <select name="id">
+                        <?php while ($sisi = mysqli_fetch_array($users)) : ?>
+                            <option value="<?= $sisi['id']; ?>"><?= $sisi['name']; ?></option>
+                            <?php
+                            while ($data = mysqli_fetch_array($users)) {
+                                $selected = $id == $data['id'] ? 'selected' : 'asdsa';
+                                echo '<option value="' . $data['$id'] . '"' . $selected . '> ' . $data['name'] . '
+                            </option>';
+                            }
+                            ?>
+                        <?php endwhile; ?>
+
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>id</td>

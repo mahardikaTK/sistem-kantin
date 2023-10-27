@@ -44,11 +44,12 @@
                     <?php
                     include_once("../config.php");
                     // Fetch all menu data from database
-                    $result = mysqli_query($mysqli, "SELECT * FROM penjual ORDER BY id DESC");
+                    $name = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                     while ($data = mysqli_fetch_array($name)) {
-                        echo '<option value='.$data ["id"];'>' .$data ['name'].' </option>';}
-                            
-                        
+                        echo '<option value=' . $data["id"] . '>' . $data["name"] . ' </option>';
+                    }
+
+
                     ?>
                 </select>
             </td>
